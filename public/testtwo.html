@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>vue组件化应用构建</title>
+    <script src="https://cdn.bootcss.com/vue/2.4.2/vue.min.js"></script>
+</head>
+<body>
+<div id="test"><span>组件模板</span>
+
+    <ul>v-bind 指令将待办项传到每一个重复的组件中
+        <!--使用创建好的实例模本构建另外一个组件模本-->
+        <qiphon v-for="val in arr" v-bind:shuxing="val"></qiphon>
+    </ul>
+</div>
+</body>
+</html>
+<script>
+    // 定义名为qiphon的新组件
+    Vue.component('qiphon',{//    component组成
+//      但是这样会为每个待办项渲染同样的文本，这看起来并不炫酷，我们应该能将数据从父作用域传到子组件。让我们来修改一下组件的定义，使之能够接受一个属性：
+        props:['shuxing'],//意味着只能支持一个属性
+        template:'<li>{{shuxing.a}}</li>'
+    });
+
+
+
+    var app2 = new Vue ({
+        el:"#test",
+        data:{
+            arr:[
+                {a:'bb'},
+                {a:'cc'}
+            ]
+        },
+    })
+</script>

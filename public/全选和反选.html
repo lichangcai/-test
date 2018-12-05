@@ -1,0 +1,44 @@
+﻿<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>jQ实现复选框的全选和反选-jq22.com</title>
+    <script src="http://libs.baidu.com/jquery/1.11.3/jquery.min.js"></script>
+    <style>
+    </style>
+</head>
+<body>
+<form>
+    <label for="red">红色</label>
+    <input name="red" type="checkbox">
+    <label for="yellow">黄色</label>
+    <input name="yellow" type="checkbox">
+    <label for="blue">蓝色</label>
+    <input name="blue" type="checkbox">
+    <input value="全选" onclick="allPick()" type="button">
+    <input value="全不选" onclick="unAllPick()" type="button">
+    <input value="反转" onclick="inverserPick()" type="button">
+</form>
+<script>
+    //    实践
+    function allPick() {
+        $("[type=checkbox]:checkbox").each(function () {
+            this.checked = true;
+        })
+    }
+    //    全不选
+    //    type代表着是当前的各自的值，type = checkbox代表着是当前的复选框
+    function unAllPick() {
+        $("[type=checkbox]:checkbox").each(function () {
+            this.checked = false;
+        })
+    }
+    // 反转
+    function inverserPick() {
+        $("[type=checkbox]:checkbox").each(function () {
+            this.checked = !this.checked;
+        })
+    }
+</script>
+</body>
+</html>

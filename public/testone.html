@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>初始值</title>
+    <script src="https://cdn.bootcss.com/vue/2.4.2/vue.min.js"></script>
+</head>
+<body>
+<div id="app">
+    <p>{{text}}</p>
+    <!--v-bind  主要用于属性绑定，Vue官方提供了一个简写方式 :bind-->
+    <span v-if="send">现在你看到我了</span>
+    <!--这个是将一个大的目标包含着一个小的目标，这个小的目标就是一个数组-->
+    <div v-for="one in two">
+        <!--然后这个大的目标后面就是一个需要循环出来的一个函数-->
+        <div>{{one.text}}</div>
+    </div>
+    <!--input框的双向绑定-->
+    <div>{{massege}}</div>
+    <input v-model="massege">
+</div>
+<script>
+    new Vue({
+        el: '#app',
+            data: {
+                text:'Hello Vue!',
+                send:true,
+                two:[//这个就是那个大的目标
+                    {text:'1'},//这个就是那些函数
+                    {text:'2'},
+                    {text:'3'},
+                    {text:'4'},
+                ],
+                massege:'这是绑定',
+            },
+    })
+</script>
+</body>
+</html>

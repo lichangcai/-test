@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>测试</title>
+</head>
+<!--<script src="javascripts/jquery.min.js"></script>-->
+<body>
+
+<p id="demo">A Paragraph.</p>
+
+<div id="myDIV">A DIV.</div>
+
+<!--原生js-->
+<script>
+    var x = document.getElementById("demo");
+//    document.getElementById("demo").innerHTML="这个是测试的，将里面的内容";
+    x.innerHTML="这个是测试的，将里面的内容1";
+    document.getElementById("myDIV").innerHTML="How are you?";
+    var i;
+    var zu = new Array();
+    zu[0] = "测试";
+    zu[1] = "测试二";
+    zu[2] = "测试三";
+    for (i=0;i<zu.length;i++){
+        document.write(zu[i] + "<br>")
+    };
+    var i ;
+    var zu = new Array();
+    zu[0] = "测试一";
+    zu[1] = "测试二";
+    zu[2] = "测试三";
+    for(i=0;i<zu.length;i++){
+
+        document.write(zu[i] + "<br>" )
+    }
+
+</script>
+</body>
+</html>

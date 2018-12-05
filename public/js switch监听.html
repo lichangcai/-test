@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>js switch 监听</title>
+</head>
+<body>
+<p>点击测试今天是星期几</p>
+<button onclick="clickday()">点击这里</button>
+<p id="click"></p>
+<script>
+    function clickday() {
+        alert(111)
+        var x;//定义一个空值
+        var nowday = new Date().getDay();
+        switch (nowday) {
+            case 0:
+                x="Today it's Sunday";
+                break;
+            case 1:
+                x="Today it's Monday";
+                break;
+            case 2:
+                x="Today it's Tuesday";
+                break;
+            case 3:
+                x="Today it's Wednesday";
+                break;
+            case 4:
+                x="Today it's Thursday";
+                break;
+            case 5:
+                x="Today it's Friday";
+                break;
+            case 6:
+                x="Today it's Saturday";
+                break;
+        }
+        document.getElementById("click").innerHTML = x;
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>计算输入框输入的结果</title>
+</head>
+<body>
+<div>
+
+    <input type="number" id="input1">+<input type="number" id="input2">=<input type="" id="input3">
+</div>
+<div>
+    <button onclick="clickAdd()">点击计算两个input相加的值</button>
+</div>
+
+<script>
+
+
+    function clickAdd() {
+        var x = document.getElementById("input1").value;
+        var y = document.getElementById("input2").value;
+        // parseInt整数型
+        var z = parseInt(x) + parseInt(y);
+        var add = document.getElementById("input3");
+        if (x == '' || y == '') {
+            alert("请先输入需要相加的数字")
+        }
+        else {
+            add.value = z
+            alert(z)
+        }
+
+    }
+</script>
+</body>
+</html>

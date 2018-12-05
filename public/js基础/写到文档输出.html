@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>写到文档输出</title>
+</head>
+<body>
+<script>
+    // document.write("<p>打发送到发送到安抚安抚撒</p>")
+    /*write是会覆盖整个文档的*/
+    function writeAll(index) {
+        if (index == "0") {
+            document.write("<p>点击后悔覆盖整个文档</p>")
+        }
+        if (index == "1") {
+            alert(1)
+        }
+    }
+
+</script>
+<p>页面的内容</p>
+<button onclick="writeAll(0)">点击这里整个页面会消失</button>
+<button onclick="writeAll(1)">点击</button>
+
+</body>
+</html>

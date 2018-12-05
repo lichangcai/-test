@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript：验证输入</title>
+</head>
+<!--js引用-->
+<script src="../javascripts/jquery.min.js"></script>
+<body>
+<div>
+    <input type="text " id="input">
+    <button onclick="clickVule(0)">点击验证是否为空</button>
+</div>
+<div>
+    <input type="text" id="input2">
+    <button onclick="clickVule(1)">点击验证是否为空</button>
+</div>
+<script>
+    function clickVule(index) {
+        var x = document.getElementById("input").value;
+        var y = document.getElementById("input2").value;
+        if (index == "0") {
+            if (x == '' || x == 'null') {
+                alert("该input框的输入是空的")
+            } else (
+                alert(x)
+            )
+        }
+        /*该方法验证是不是输入的数字*/
+        if (index == '1') {
+            if (y == "" || isNaN(x)) {
+                alert("请输入数字")
+            } else {
+                alert(y)
+            }
+        }
+    }
+</script>
+</body>
+</html>

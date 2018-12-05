@@ -1,0 +1,94 @@
+﻿<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>jQuery之简单的表单验证-jq22.com</title>
+    <script src="http://libs.baidu.com/jquery/1.11.3/jquery.min.js"></script>
+    <style>
+    </style>
+</head>
+<body>
+<div>这个星号是通过jq添加的</div>
+<form method="post" action="">
+    <div class="int">
+        <label for="username">用户名:</label>
+        <!-- 为每个需要的元素添加required -->
+        <input type="text" id="username" class="required">
+    </div>
+    <div class="int">
+        <label for="email">邮箱:</label>
+        <input type="text" id="email" class="required">
+    </div>
+    <div class="int">
+        <label for="personinfo">个人资料:</label>
+        <input type="text" id="personinfo">
+    </div>
+    <div class="sub">
+        <input type="reset" id="res">
+    </div>
+</form>
+
+<script>
+
+    $(function () {
+        //如果是必填的，则加红星标识.这个星号是通过js添加的
+        $("form :input.required").each(function () {//each是遍历的意思；将每个拥有requored的input框都遍历一次，然后在其后面添加*
+            var $required = $("<strong class='high'> *</strong>"); //创建元素
+            $(this).parent().append($required); //然后将它追加到文档中
+            //append() 方法在被选元素的结尾（仍然在内部）插入指定内容。
+        });
+        //文本框失去焦点后
+        $('form :input').blur(function () {//来自form表单的脱离焦点触发的事件
+            var $parent = $(this).parent();//定义一个父级元素为当前的父级元素
+            $parent.find(".formtips").remove();//由于每次在元素失去焦点后，都会创建一个新的提醒元素，然后将它追加到文档中，最后就出现了多次的提醒信息。因此，需要在创建提醒元素之前，将当前元素以前的提醒元素都删除。可以使用 remove() 方法来完成。
+            //删除以前的提醒元素（find()：查找匹配元素集中元素的所有匹配元素）
+
+
+
+            //验证用户名
+            if ($(this).is('#username')) {
+                if (this.value == "" || this.value.length < 6) {
+                    var errorMsg = '请输入至少6位的用户名.';
+                    $parent.append('<span class="formtips onError">' + errorMsg + '</span>');//是将添加好的文字置于文本最后
+                } else {
+                    var okMsg = '输入正确.';
+                    $parent.append('<span class="formtips onSuccess">' + okMsg + '</span>');
+                }
+            }
+            //验证邮件
+            if ($(this).is('#email')) {
+                if (this.value == "" || (this.value != "" && !/.+@.+\.[a-zA-Z]{2,4}$/.test(this.value))) {
+                    var errorMsg = '请输入正确的E-Mail地址.';
+                    $parent.append('<span class="formtips onError">' + errorMsg + '</span>');
+                } else {
+                    var okMsg = '输入正确.';
+                    $parent.append('<span class="formtips onSuccess">' + okMsg + '</span>');
+                }
+            }
+        })
+            .keyup(function () {
+            $(this).triggerHandler("blur");
+        })
+            .focus(function () {
+                $(this).triggerHandler("blur");
+            }); //end blur
+
+
+        //提交，最终验证。
+        $('#send').click(function () {
+            $("form :input.required").trigger('blur');
+            var numError = $('form .onError').length;
+            if (numError) {
+                return false;
+            }
+            alert("注册成功,密码已发到你的邮箱,请查收.");
+        });
+        //重置
+        $('#res').click(function () {
+            $(".formtips").remove();
+        });
+    })
+</script>
+
+</body>
+</html>

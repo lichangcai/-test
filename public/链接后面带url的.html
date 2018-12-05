@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>链接后面带url</title>
+    <script src="http://libs.baidu.com/jquery/1.11.3/jquery.min.js"></script>
+</head>
+<body>
+<a>点击跳去百度</a>
+<script>
+    $('p').click(function () {
+        window.location.href = 'www.baidu.com?id=' + 121;
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>日历上月的写法</title>
+</head>
+<body>
+<input type="text" class="getLastMonthYestdy"/>
+<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script >
+    /*总结：获取前一个月的日期之所以不简单，就是因为每个月天数不固定造成的，
+        * 而这个方法把12个月的天数都列在一个数组里面，使之变的具体而不再抽象，
+        * 用到某个月天数时候，只需要和数组对应位置的元素值比较即可
+        * */
+    function getLastMonthYestdy(date){
+        var date = new Date(); //        1    2    3    4    5    6    7    8    9   10    11   12月
+        var daysInMonth = new Array([0],[31],[28],[31],[30],[31],[30],[31],[31],[30],[31],[30],[31]);
+        var strYear = date.getFullYear();
+        var strDay = date.getDate();
+        var strMonth = date.getMonth()+1;
+        if(strYear%4 == 0 && strYear%100 != 0){//一、解决闰年平年的二月份天数   //平年28天、闰年29天//能被4整除且不能被100整除的为闰年
+            daysInMonth[2] = 29;
+        }
+        if(strMonth - 1 == 0) //二、解决跨年问题
+        {
+            strYear -= 1;
+            strMonth = 12;
+        }
+        else
+        {
+            strMonth -= 1;
+        }
+//        strDay = daysInMonth[strMonth] >= strDay ? strDay : daysInMonth[strMonth];
+        strDay = Math.min(strDay,daysInMonth[strMonth]);//三、前一个月日期不一定和今天同一号，例如3.31的前一个月日期是2.28；9.30前一个月日期是8.30
+
+        if(strMonth<10)//给个位数的月、日补零
+        {
+            strMonth="0"+strMonth;
+        }
+        if(strDay<10)
+        {
+            strDay="0"+strDay;
+        }
+        datastr = strYear+"-"+strMonth+"-"+strDay;
+        return datastr;
+
+    }
+    getLastMonthYestdy();
+    $(".getLastMonthYestdy").val(datastr)
+</script>
+</body>
+</html>

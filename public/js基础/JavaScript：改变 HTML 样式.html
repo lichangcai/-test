@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript：改变 HTML 样式</title>
+</head>
+<body>
+<div id="index1">这段文字的样式即将被改变</div>
+<div id="index2">这段文字的样式即将被改变2</div>
+<button onclick="changeClickColor(0)">点击改变样式1</button>
+<button onclick="changeClickColor(1)">点击改变样式2</button>
+<script>
+
+    function changeClickColor(index) {
+        var x = document.getElementById("index1")
+        var y = document.getElementById("index2")
+        if (index == "0") {
+            x.style.color = "red"
+        }
+        if (index == "1") {
+            y.style.color = "red"
+        }
+    }
+</script>
+</body>
+</html>

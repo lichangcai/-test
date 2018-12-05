@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>声明变量时对其赋值：</title>
+</head>
+<body>
+<p id="p"></p>
+<button onclick="clickChange()">点击触发变量</button>
+<script>
+    var a = '这个是变量'
+
+    function clickChange() {
+        document.getElementById("p").innerHTML = a
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>setInterval和clearInterval的使用</title>
+</head>
+<body>
+<input type="text" size="35" id="clock">
+    <script language=javascript>
+        function clock() {
+            var t=new Date()
+            document.getElementById("clock").value=t
+        }
+    var int=self.setInterval("clock()",50)//self代表的是当前页面
+
+
+</script>
+<button onclick="int=window.clearInterval(int)">Stop interval</button>
+</body>
+</html>

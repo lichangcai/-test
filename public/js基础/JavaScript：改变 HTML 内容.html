@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript：改变 HTML 内容</title>
+</head>
+<body>
+<div id="name">这个是将要被改变的内容</div>
+<button onclick="change()">点击这里改变内容</button>
+<div id="name2">点击显示</div>
+<button onclick="changeclick(0)">点击这里1</button>
+<button onclick="changeclick(1)">点击这里2</button>
+<script>
+    var p1 = false;
+
+    function change() {
+        /*先定义下或者需要改变的标签的id或者class*/
+        x = document.getElementById("name")
+        x.innerHTML = "点击之后我被改变了"
+    };
+
+    function changeclick(index) {
+        /*传一个参数然后页面调用改参数具体使用哪个方法*/
+        if (index == "0") {
+            alert(1)
+        }
+        if (index == "1") {
+            alert(2)
+        }
+    }
+
+</script>
+</body>
+</html>

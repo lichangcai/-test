@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript 数组</title>
+</head>
+<body>
+<p class="id" id="id">这个是用来添加内容的</p>
+<button onclick="clickA()">点击循环出来数值的内容</button>
+<script>
+    var i;
+    var carry = new Array();//定义一个变量为一个数组
+    carry[0] = 0;
+    carry[1] = 1;
+    carry[2] = 2;
+
+    function clickA() {
+        // for (i = 0; i < carry.length; i++) {
+        //     document.write(carry[i] + "<br>");
+        //     console.log(carry[i])
+        //     // document.getElementById("id").innerHTML = (carry[i] + "<br>")
+        // }
+
+        for (i = 0; i < carry.length; i++) {
+            alert(carry[i])
+        }
+    }
+</script>
+
+</body>
+</html>

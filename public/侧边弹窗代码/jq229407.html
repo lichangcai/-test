@@ -1,0 +1,92 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>倒计时弹窗可自动关闭-jq22.com</title>
+<script src="http://libs.baidu.com/jquery/1.11.3/jquery.min.js"></script>
+<style>
+#beiJ {
+	width:100%;
+	height:100%;
+	background:#000;
+	opacity:0.7;
+	position:fixed;
+	top:0;
+	left:0;
+}
+#tanChuang {
+	width:800px;
+	height:400px;
+	position:fixed;
+	top:50%;
+	left:50%;
+	margin:-200px 0 0 -400px;
+	background:#222;
+	box-shadow:0px 0px 20px #111;
+	color:#fff;
+}
+#jiShi {
+	width:180px;
+	height:180px;
+	border:10px solid #fff;
+	border-radius:50%;
+	margin:100px auto;
+	font-size:150px;
+	font-weight:bold;
+	font-family:"arial";
+	text-align:center;
+	line-height:180px;
+	position:absolute;
+	top:0%;
+	left:calc(50% - 100px);
+}
+#tanChuang img {
+	width:100%;
+	height:100%;
+}
+#tanChuang span {
+	width:40px;
+	height:40px;
+	font-size:40px;
+	position:absolute;
+	top:0;
+	right:0;
+	cursor:pointer
+}
+</style>
+</head>
+<body>
+<div style="width:100%; height:100%; background:url(http://www.jq22.com/img/cs/500x300-2.png)">
+    <div id="beiJ"></div>
+    <div id="tanChuang">
+        <img src="http://www.jq22.com/img/cs/500x300-1.png" alt="">
+        <div id="jiShi"></div>
+        <span id="sp">×</span></div>
+</div>
+
+<script>
+window.onload = function() {
+    var obj = document.getElementById("jiShi");
+    var sp = document.getElementById("sp");
+    var i = 5;
+    obj.innerHTML = i;
+    var a = setInterval(timeFn, 1000);
+
+    function timeFn() {
+        i--;
+        obj.innerHTML = i;
+        if (i == 0) {
+            clearInterval(a);
+            beiJ.style.display = "none";
+            tanChuang.style.display = "none";
+        }
+    }
+    sp.onclick = function() {
+        beiJ.style.display = "none";
+        tanChuang.style.display = "none";
+    }
+}
+</script>
+
+</body>
+</html>

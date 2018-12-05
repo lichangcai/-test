@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>一个月最月月底的写法</title>
+</head>
+<script language=javascript>
+    function getlastday(year,month)
+    {
+        var new_year = year;    //取当前地年份
+        var new_month = month++;//取下一个月地第一天，方便计算（最后一天不固定）
+        if(month>12)            //如果当前大于12月，则年份转到下一年
+        {
+            new_month -=12;        //月份减
+            new_year++;            //年份增
+        }
+        var new_date = new date(new_year,new_month,1);                //取当年当月中地第一天
+        return (new date(new_date.gettime()-1000*60*60*24)).getdate();//获取当月最后一天日期
+    }
+</script>
+<body>
+<input id=button1 type=button value=取2007年5月地最后一天 onclick=alert(getlastday(2007,5)) />
+</body>
+</html>
